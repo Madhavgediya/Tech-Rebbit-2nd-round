@@ -29,10 +29,6 @@ const EditRecipe = () => {
     mealType: "",
   });
 
-  useEffect(() => {
-    getRecipeData();
-  }, []);
-
   const getRecipeData = async () => {
     let response = await getRecipe(id);
     // console.log(response.data);
@@ -56,6 +52,10 @@ const EditRecipe = () => {
     // await editRecipe(recipeDetails , id);
     // navigate("/recipes");
   };
+
+  useEffect(() => {
+    getRecipeData();
+  }, [getRecipeData]);
 
   return (
     <form onSubmit={handleSubmit}>

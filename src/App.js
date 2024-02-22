@@ -1,24 +1,22 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import RecipeList from "./Componenets/RecipeList";
 import RecipeDetails from "./Componenets/RecipeDetails";
-import axios from "axios";
+// import axios from "axios";
 import Navbar from "./Componenets/Navbar";
 import AddRecipes from "./Componenets/AddRecipes";
 import EditRecipe from "./Componenets/EditRecipe";
-import { searchRecipes } from "./service/api";
-
 const App = () => {
-  const [recipes, setRecipes] = useState([]);
-  const [filteredRecipes, setFilteredRecipes] = useState([]);
+  // const [filteredRecipes, setFilteredRecipes] = useState([]);
 
   const handleSearch = async (query) => {
-    try {
-      const response = await searchRecipes(query);
-      setFilteredRecipes(response.data);
-    } catch (error) {
-      console.error("Error searching data:", error);
-    }
+    console.log(query);
+    // try {
+    //   const response = await searchRecipes(query);
+    //   setFilteredRecipes(response.data);
+    // } catch (error) {
+    //   console.error("Error searching data:", error);
+    // }
   };
 
   return (

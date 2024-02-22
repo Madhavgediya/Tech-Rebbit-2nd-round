@@ -4,21 +4,22 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import { CardMedia } from "@mui/material";
-import { getRecipe, editRecipe } from "../service/api";
+import { getRecipe } from "../service/api";
 
 const RecipeDetails = ({ recipes }) => {
   const [recipeDetails, setRecipeDetails] = useState({});
   const { id } = useParams();
-
-  useEffect(() => {
-    getRecipeData();
-  }, []);
 
   const getRecipeData = async () => {
     let response = await getRecipe(id);
     // console.log(response.data);
     setRecipeDetails(response.data);
   };
+
+  
+  useEffect(() => {
+    getRecipeData();
+  }, [getRecipeData]);
   return (
     <div
       className="container mx-auto my-5"

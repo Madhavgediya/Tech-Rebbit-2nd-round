@@ -47,6 +47,20 @@
       "mealType": [
         "Dinner"
       ]
+    },
+    {
+      "id": "d5d0",
+      "name": "wui",
+      "ingredients": "uiyuiyi",
+      "instructions": "yuyuiyuiy",
+      "prepTimeMinutes": "987",
+      "cookTimeMinutes": "8797",
+      "servings": "98798",
+      "difficulty": "jkhkh",
+      "cuisine": "kkjkj",
+      "caloriesPerServing": "89798",
+      "image": "https://img.freepik.com/free-photo/vertical-shot-traditional-indian-paneer-butter-masala-cheese-cottage-curry-black-surface_181624-32001.jpg?w=360&t=st=1708635158~exp=1708635758~hmac=d4fb33717e88de5e561a0b2154e51500d097f7274e6a3601e0c656a5b74861af",
+      "mealType": "Lunch"
     }
   ]
 }

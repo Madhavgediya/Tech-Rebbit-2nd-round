@@ -11,7 +11,7 @@ import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import { red } from "@mui/material/colors";
 import { getRecipes, deleteRecipe } from "../service/api";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
@@ -20,7 +20,7 @@ import { Button } from "@mui/material";
 
 const RecipeList = () => {
   const [recipes, setRecipes] = useState([]);
-  const [filteredRecipes, setFilteredRecipes] = useState([]);
+
   useEffect(() => {
     getRecipesDetails();
   }, []);
@@ -63,11 +63,12 @@ const RecipeList = () => {
                   <CardMedia
                     component="img"
                     height="194"
+                    style={{height : "400px"}}
                     image={recipe.image}
                     alt="Paella dish"
                   />
                   <CardContent>
-                    <Typography variant="body2" color="text.secondary">
+                    <Typography variant="body2" color="text.secondary" className="line-clamp-1">
                       {recipe.ingredients}
                     </Typography>
                   </CardContent>

@@ -40,6 +40,7 @@ const AddRecipes = () => {
   };
 
   const handleSubmit = async (e) => {
+    e.preventDefault();
     await addRecipes(recipeDetails);
     navigate("/");
   };
