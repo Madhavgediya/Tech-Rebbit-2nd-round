@@ -74,6 +74,9 @@ export default function Navbar({ onSearch }) {
           <Link to="/recipes" className="text-xl mx-4">
             Recipes
           </Link>
+          <Link to="/addrecipes" className="text-xl mx-4">
+            Add Recipes
+          </Link>
 
           <Search>
             <SearchIconWrapper>

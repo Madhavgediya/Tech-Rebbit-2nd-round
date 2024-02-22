@@ -1,20 +1,24 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import { CardMedia } from "@mui/material";
+import { getRecipe, editRecipe } from "../service/api";
 
 const RecipeDetails = ({ recipes }) => {
+  const [recipeDetails, setRecipeDetails] = useState({});
   const { id } = useParams();
 
-  // Find the recipe with the matching id
-  const recipe = recipes.find((recipe) => recipe.id === parseInt(id));
+  useEffect(() => {
+    getRecipeData();
+  }, []);
 
-  if (!recipe) {
-    return <div>Recipe not found!</div>;
-  }
-
+  const getRecipeData = async () => {
+    let response = await getRecipe(id);
+    // console.log(response.data);
+    setRecipeDetails(response.data);
+  };
   return (
     <div
       className="container mx-auto my-5"
@@ -31,7 +35,7 @@ const RecipeDetails = ({ recipes }) => {
           <CardMedia
             component="img"
             height="194"
-            image={recipe.image}
+            image={recipeDetails.image}
             alt="Paella dish"
           />
         </div>
@@ -44,7 +48,7 @@ const RecipeDetails = ({ recipes }) => {
         >
           <CardContent>
             <Typography variant="h2" gutterBottom>
-              {recipe.name}
+              {recipeDetails.name}
             </Typography>
             <Typography
               variant="subtitle1 font-bold"
@@ -54,7 +58,7 @@ const RecipeDetails = ({ recipes }) => {
               Ingredients:
             </Typography>
             <Typography variant="body1" paragraph>
-              {recipe.ingredients}
+              {recipeDetails.ingredients}
             </Typography>
             <Typography
               variant="subtitle1 font-bold"
@@ -64,7 +68,7 @@ const RecipeDetails = ({ recipes }) => {
               Instructions:
             </Typography>
             <Typography variant="body1" paragraph>
-              {recipe.instructions}
+              {recipeDetails.instructions}
             </Typography>
             <div className="flex">
               <Typography
@@ -75,7 +79,7 @@ const RecipeDetails = ({ recipes }) => {
                 MealType:
               </Typography>
               <Typography variant="body1" paragraph>
-                {recipe.mealType}
+                {recipeDetails.mealType}
               </Typography>
             </div>
             <div className="flex ">
@@ -87,7 +91,7 @@ const RecipeDetails = ({ recipes }) => {
                 Cooking TimeMinutes:
               </Typography>
               <Typography variant="body1" paragraph>
-                {recipe.cookTimeMinutes}
+                {recipeDetails.cookTimeMinutes}
               </Typography>
             </div>
           </CardContent>

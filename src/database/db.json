@@ -1,0 +1,52 @@
+{
+  "recipes": [
+    {
+      "id": "1",
+      "name": "Greek Moussaka",
+      "ingredients": [
+        "Eggplants, sliced",
+        "Ground lamb or beef",
+        "Onions, finely chopped",
+        "Garlic, minced",
+        "Tomatoes, crushed",
+        "Red wine",
+        "Cinnamon",
+        "Allspice",
+        "Nutmeg",
+        "Olive oil",
+        "Milk",
+        "Flour",
+        "Parmesan cheese",
+        "Egg yolks"
+      ],
+      "instructions": [
+        "Preheat oven to 375°F (190°C).",
+        "Sauté sliced eggplants in olive oil until browned. Set aside.",
+        "In the same pan, cook chopped onions and minced garlic until softened.",
+        "Add ground lamb or beef and brown. Stir in crushed tomatoes, red wine, and spices.",
+        "In a separate saucepan, make béchamel sauce: melt butter, whisk in flour, add milk, and cook until thickened.",
+        "Remove from heat and stir in Parmesan cheese and egg yolks.",
+        "In a baking dish, layer eggplants and meat mixture. Top with béchamel sauce.",
+        "Bake for 40-45 minutes until golden brown. Let it cool before slicing.",
+        "Serve slices of moussaka warm and enjoy this Greek classic!"
+      ],
+      "prepTimeMinutes": 45,
+      "cookTimeMinutes": 45,
+      "servings": 6,
+      "difficulty": "Medium",
+      "cuisine": "Greek",
+      "caloriesPerServing": 420,
+      "tags": [
+        "Moussaka",
+        "Greek"
+      ],
+      "userId": 36,
+      "image": "https://picsum.photos/id/1/200/300",
+      "rating": 4.3,
+      "reviewCount": 5,
+      "mealType": [
+        "Dinner"
+      ]
+    }
+  ]
+}

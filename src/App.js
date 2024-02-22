@@ -4,30 +4,21 @@ import RecipeList from "./Componenets/RecipeList";
 import RecipeDetails from "./Componenets/RecipeDetails";
 import axios from "axios";
 import Navbar from "./Componenets/Navbar";
+import AddRecipes from "./Componenets/AddRecipes";
+import EditRecipe from "./Componenets/EditRecipe";
+import { searchRecipes } from "./service/api";
 
 const App = () => {
   const [recipes, setRecipes] = useState([]);
   const [filteredRecipes, setFilteredRecipes] = useState([]);
 
-  useEffect(() => {
-    fetchData();
-  }, []);
-
-  const fetchData = async () => {
+  const handleSearch = async (query) => {
     try {
-      const response = await axios.get("https://dummyjson.com/recipes");
-      setRecipes(response.data.recipes);
-      setFilteredRecipes(response.data.recipes); // Initialize filtered recipes with all recipes
+      const response = await searchRecipes(query);
+      setFilteredRecipes(response.data);
     } catch (error) {
-      console.error("Error fetching data:", error);
+      console.error("Error searching data:", error);
     }
-  };
-
-  const handleSearch = (query) => {
-    const filtered = recipes.filter((recipe) =>
-      recipe.name.toLowerCase().includes(query.toLowerCase())
-    );
-    setFilteredRecipes(filtered);
   };
 
   return (
@@ -35,20 +26,11 @@ const App = () => {
       <div>
         <Navbar onSearch={handleSearch} />
         <Routes>
-          <Route
-            exact
-            path="/"
-            element={<RecipeList recipes={filteredRecipes} />}
-          />
-          <Route
-            exact
-            path="/recipes"
-            element={<RecipeList recipes={filteredRecipes} />}
-          />
-          <Route
-            path="/recipe/:id"
-            element={<RecipeDetails recipes={recipes} />}
-          />
+          <Route exact path="/" element={<RecipeList />} />
+          <Route exact path="/recipes" element={<RecipeList />} />
+          <Route exact path="/addrecipes" element={<AddRecipes />} />
+          <Route exact path="/editrecipe/:id" element={<EditRecipe />} />
+          <Route exact path="/recipe/:id" element={<RecipeDetails />} />
         </Routes>
       </div>
     </Router>
