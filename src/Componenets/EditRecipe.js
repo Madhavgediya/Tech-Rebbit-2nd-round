@@ -29,12 +29,6 @@ const EditRecipe = () => {
     mealType: "",
   });
 
-  const getRecipeData = async () => {
-    let response = await getRecipe(id);
-    // console.log(response.data);
-    setRecipeDetails(response.data);
-  };
-
   const handleChange = (e) => {
     const { name, value } = e.target;
     setRecipeDetails((prevState) => ({
@@ -54,9 +48,20 @@ const EditRecipe = () => {
   };
 
   useEffect(() => {
-    getRecipeData();
-  }, [getRecipeData]);
+    const getRecipeData = async () => {
+      try {
+        let response = await getRecipe(id);
+        setRecipeDetails(response.data);
+      } catch (error) {
+        console.error("Error fetching recipe:", error);
+      }
+    };
 
+    getRecipeData(); // Call the function inside useEffect
+
+    // No need to include getRecipeData in the dependency array
+  }, [id]); // Add id as a dependency
+  
   return (
     <form onSubmit={handleSubmit}>
       <Grid container spacing={2}>
